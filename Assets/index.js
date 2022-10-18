@@ -1,0 +1,1 @@
+const HTML = require('./src')
