@@ -1,4 +1,4 @@
-const HTML = require('./src/html')
+const HTML = require('./html.js')
 
 const fs = require ('fs');
 const inquirer = require ('inquirer');
@@ -31,5 +31,23 @@ const addEmployee = () => {
             return addEmployee();
         }
         return tArray
+        const writeFile = data => {
+            fs.writeFile('./dist/index.html', data, err => {
+              if (err) {
+                console.log(err)
+                return;
+              } else {
+                console.log(
+                  'Success! Your team has been generated and updated!'
+                );
+              }
+            })
+          };
+          
+          addManager()
+            .then(addEmployee)
+            .then(teamArray => HTML(tArray))
+            .then(pageHTML => writeFile(pageHTML))
+            .catch(err => console.log(err));
 })
 };
