@@ -1,4 +1,4 @@
-const HTML = require('./html.js')
+const HTML = require('./html')
 
 const fs = require ('fs');
 const inquirer = require ('inquirer');
