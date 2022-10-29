@@ -1,0 +1,19 @@
+header {
+    text-align: center;
+    background-color:rgb(255, 190, 190);
+    padding: 50px;
+}
+h1 {
+    font-size: 25px;
+    color: black;
+}
+.card {
+    padding: 15px;
+}
+
+#cardSection {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
