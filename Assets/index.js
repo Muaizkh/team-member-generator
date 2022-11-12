@@ -30,7 +30,6 @@ const addEmployee = () => {
         if (employeeAdd) {
             return addEmployee();
         }
-        return tArray
         const writeFile = data => {
             fs.writeFile('./dist/index.html', data, err => {
               if (err) {
@@ -49,5 +48,6 @@ const addEmployee = () => {
             .then(teamArray => HTML(tArray))
             .then(pageHTML => writeFile(pageHTML))
             .catch(err => console.log(err));
-})
-};
+}) 
+}
+return tArray ();
