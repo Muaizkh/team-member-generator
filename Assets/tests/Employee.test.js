@@ -6,7 +6,7 @@ describe("employee", () => {
             const employeeLogin = new Employee(name);
             expect(employeeLogin.name).toBe(name); 
         })
-        it("retireve employee id", () => {
+        it("throw back employee id", () => {
             let number = 0;
             const employee =new Employee ('Muaiz number', 'muaiz@gmail.com');
             expect(employee.getId ()).toEqual(number);
@@ -16,7 +16,7 @@ describe("employee", () => {
             const employee = new Employee ('Muaiz', 22, email);
             expect(employee.getEmail()).toEqual(email);
         })
-        it('captur role of the employee', () =>{
+        it('capture role of the employee', () =>{
             const employee = new Employee('Muaiz', 22, 'muaiz@gmail.com');
             expect(employee.getRole()).toEqual('Employee');
         })
