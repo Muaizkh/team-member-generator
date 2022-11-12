@@ -45,7 +45,7 @@ const addEmployee = () => {
           
           addManager()
             .then(addEmployee)
-            .then(teamArray => HTML(tArray))
+            .then(tArray => HTML(tArray))
             .then(pageHTML => writeFile(pageHTML))
             .catch(err => console.log(err));
 }) 
