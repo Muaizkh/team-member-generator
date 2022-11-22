@@ -1,4 +1,6 @@
-header {
+/* no longer require this CSS as I have added it in with genrerated HTML in Index.js */
+
+/* header {
     text-align: center;
     background-color:rgb(255, 190, 190);
     padding: 50px;
@@ -16,4 +18,4 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;
     margin: auto;
-}
+} */
