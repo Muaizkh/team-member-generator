@@ -1,54 +1,34 @@
-const HTML = require('./html')
 
-const fs = require ('fs');
-const inquirer = require ('inquirer');
-
+const inquirer = require('inquirer');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-const { eChoices, mChoices } = require('./lib/choices');
-// team array
-const tArray = [];
-// prompts for the manager
-const addManager = () => {
-    return inquirer.createPromptModule(mChoices).then(managerInput => {const {name, id, email, officeNumber} = managerInput;
-const manager = new Manager(name, id, email, officeNumber);
-tArray.push(manager);
-})
-};
-// prompts for the employee
-const addEmployee = () => {
-    return inquirer.createPromptModule(eChoices).then(employeeInfo => {
-        let {name, id, email, role, github, school, employeeAdd} = employeeInfo
-        let employee = 
+const fs = require('fs');
+const { url } = require('inspector');
 
-        role === 'Engineer'
-        ? new Engineer (name, id, email, github)
-        : new Intern (name, id, email, school);
-        tArray.push(employee);
-
-        if (employeeAdd) {
-            return addEmployee();
-        }
-        const writeFile = data => {
-            fs.writeFile('./dist/index.html', data, err => {
-              if (err) {
-                console.log(err)
-                return;
-              } else {
-                console.log(
-                  'Success! Your team has been generated and updated!'
-                );
-              }
-            })
-          };
-          
-          addManager()
-            .then(addEmployee)
-            .then(tArray => HTML(tArray))
-            .then(pageHTML => writeFile(pageHTML))
-            .catch(err => console.log(err));
-}) 
+const dir = './dist';
+if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir);
 }
 
-return tArray ();
+const engineerQuestions = [
+    {
+        type: 'input',
+        name: 'name',
+        message: "What is the engineer's name?",
+    },
+    {
+        type: 'input',
+        name: 'id',
+        message: "What is the engineer's ID?"
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: "What is the engineer's email?"
+    },
+    {
+        type: 'input',
+        name: 'github',
+        message: "What is the engineer's github username?"
+    }];
