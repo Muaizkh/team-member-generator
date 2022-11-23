@@ -18,11 +18,11 @@ const Intern = require('../lib/Intern');
 test('getRole returns intern role', () => {
     const intern = new Intern('Muaiz', 1, 'muiaz@hotmail.com', 'UofT');
 
-    except (intern.getRole()).toBe("Intern");
+    except(intern.getRole()).toBe("Intern");
 })
 
 test('getSchool returns interns school', () => {
     const intern = new Intern('Muaiz', 1, 'muiaz@hotmail.com', 'UofT');
 
-    except (intern.getSchool()).toBe('UofT');
+    expect(intern.getSchool()).toBe('UofT');
 });

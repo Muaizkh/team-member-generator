@@ -1,4 +1,3 @@
-
 const inquirer = require('inquirer');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
@@ -85,7 +84,7 @@ const engineerQuestions = [
         const addingEmployees = [
           {
               type: 'list',
-              name: 'roleType',
+              name: 'role',
               message: 'What is the role of the employee that you are adding? Select cancel option to quit out of this menu',
               choices: [
                   {
@@ -108,7 +107,7 @@ const engineerQuestions = [
         const employeeArray = [manager];
     
         let employeeSelection = await inquirer.prompt(addingEmployees);
-        while (employeeSelection.roleType !== "none") {
+        while (employeeSelection.roleType !== "cancel") {
             if (employeeSelection.roleType == "engineer") {
                 let engineerSelection = await inquirer.prompt(engineerQuestions);
                 const engineer = new Engineer(engineerSelection.name, engineerSelection.id,
@@ -136,7 +135,7 @@ const engineerQuestions = [
 // finishes the creation of the team on the backend and creates and HTML file that appends information gathered to the front end 
       createTeams()
     .then(() => {
-        console.log("done creating teams");
+        console.log("Created team");
     })
     .catch(err => console.log(err));
 // added link reference and outline of how the HTML should look while also adding information gathered in the backend and pushing it to the front
