@@ -16,7 +16,7 @@
 const Intern = require('../lib/Intern');
 
 test('getRole returns intern role', () => {
-    const intern = new Intern('Muaiz', 1, 'muiaz@hotmail.com', 'school');
+    const intern = new Intern('Muaiz', 1, 'muiaz@hotmail.com', 'school')
 
     except(intern.getRole()).toBe("Intern");
 });
