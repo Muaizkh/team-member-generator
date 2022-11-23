@@ -16,13 +16,14 @@
 
 const Manager = require('../lib/Manager');
 
-test('getRole returns Manager role', () => {
-    const manager = new Manager ('Muaiz', 1, 'muiaz@hotmail.com', '1')
-    except(manager.getRole()).toBe("Manager");
+test('getRole returns manager role', () => {
+    const manager = new Manager("muaiz", 12, "muiaz@gmail.com", 123);
+
+    expect(manager.getRole()).toBe("Manager");
 });
 
-test('setting up officeNumeber', () => {
-    const manager = new Manager ('Muaiz', 1, 'muiaz@hotmail.com', '1')
+test('officeNumber is set', () => {
+    const manager = new Manager("muaiz", 123, "muiaz@gmail.com", 123);
 
-    except(manager.officeNumber).toBe("1");
+    expect(manager.officeNumber).toBe(123);
 });
